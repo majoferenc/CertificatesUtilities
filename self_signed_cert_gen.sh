@@ -36,6 +36,6 @@ keytool -importkeystore -noprompt -srckeystore keystore.p12 -srcstoretype pkcs12
 [ "${KEY_PWD}" ] && keytool -keypasswd -noprompt -new "${KEY_PWD}" -alias "${KEY_ALIAS}" -keystore keystore.jks -storepass "${KEYSTORE_PWD}"
 
 echo "#### Base64 format of cert.pem..."
-cat cert.pem | base64
+cat cert.pem | base64 | tr -d "\n"
 echo "#### Base64 format of key.pem..."
-cat key.pem | base64
+cat key.pem | base64 | tr -d "\n"
